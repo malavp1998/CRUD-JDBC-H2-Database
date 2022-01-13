@@ -12,32 +12,32 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
 
 
     @Override
     public List<Employee> getEmployees() {
-        return employeeRepository.findAll();
+        return this.employeeRepository.findAll();
     }
 
     @Override
-    public Employee getEmployeeById(int id) {
-        return employeeRepository.findById(id);
+    public Employee getEmployeeById(final int id) {
+        return this.employeeRepository.findById(id);
     }
 
     @Override
-    public void saveEmployee(Employee employee) {
-        employeeRepository.save(employee);
+    public void saveEmployee(final Employee employee) {
+        this.employeeRepository.save(employee);
     }
 
     @Override
-    public void deleteEmployee(int id) {
-        employeeRepository.deleteById(id);
+    public void deleteEmployee(final int id) {
+        this.employeeRepository.deleteById(id);
     }
 
     @Override
-    public void updateEmployee(Employee employee, int id) {
-        employeeRepository.update(employee, id);
+    public void updateEmployee(final Employee employee, final int id) {
+        this.employeeRepository.update(employee, id);
     }
 
 
