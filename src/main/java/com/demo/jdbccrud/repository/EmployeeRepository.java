@@ -20,13 +20,13 @@ public class EmployeeRepository {
     }
 
     public List<Employee> findAll() {
-        final List<Employee> items = this.jdbcTemplate.query("select id, firstname,lastname, email from employee", (result, rowNum) -> new Employee(result.getInt("id"), result.getString("firstname"),
+        final List<Employee> items = this.jdbcTemplate.query("select id, firstname, lastname, email from employee", (result, rowNum) -> new Employee(result.getInt("id"), result.getString("firstname"),
                 result.getString("lastname"), result.getString("email")));
         return items;
     }
 
     public Employee findById(final int id) {
-        final List<Employee> employees = this.jdbcTemplate.query("select id, firstname,lastname, email from employee where employee.id=" + id, (result, rowNum) -> new Employee(result.getInt("id"), result.getString("firstname"),
+        final List<Employee> employees = this.jdbcTemplate.query("select id, firstname, lastname, email from employee where employee.id=" + id, (result, rowNum) -> new Employee(result.getInt("id"), result.getString("firstname"),
                 result.getString("lastname"), result.getString("email")));
         log.info("find by id item size " + employees.size());
         if (employees.size() == 0) {
@@ -41,9 +41,9 @@ public class EmployeeRepository {
         final int update = this.jdbcTemplate.update(insertQuery, employee.getFirstName(), employee.getLastName(), employee.getEmail());
 
         if (update == 1) {
-            //   logger.info("employee saved");
+            log.info("employee saved");
         } else {
-            //    logger.info("employee already present");
+            log.info("employee already present");
         }
     }
 
