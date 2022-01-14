@@ -16,13 +16,13 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/employees")
-    private List<Employee> getAllPersons() {
+    public List<Employee> getAllPersons() {
         return this.employeeService.getEmployees();
     }
 
 
     @GetMapping("/employee/{id}")
-    private ResponseEntity<Employee> getEmployee(@PathVariable("id") final int id) {
+    public ResponseEntity<Employee> getEmployee(@PathVariable("id") final int id) {
         if (this.employeeService.getEmployeeById(id) == null) {
             return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         } else {

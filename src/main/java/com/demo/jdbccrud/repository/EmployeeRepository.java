@@ -52,13 +52,13 @@ public class EmployeeRepository {
         final int update = this.jdbcTemplate.update(deleteQuery, id);
         try {
             if (update == 1) {
-                log.info("employees Deleted");
+                log.info("employees Deleted " + id);
             } else {
-                log.info("Error in Deleting");
+                log.info("Error in Deleting " + id);
                 throw new RuntimeException("Employee not present with id = " + id);
             }
         } catch (final Exception e) {
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
             throw e;
         }
     }
@@ -67,7 +67,7 @@ public class EmployeeRepository {
         final String updateQuery = "update employee set firstName = ?, lastName = ?, email = ? where employee.id = ?";
         final int update = this.jdbcTemplate.update(updateQuery, employee.getFirstName(), employee.getLastName(), employee.getEmail(), id);
         if (update == 1) {
-            log.info("updated");
+            log.info(String.format("employee %d", id));
         } else {
             log.info("Error in updating");
         }

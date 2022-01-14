@@ -27,7 +27,7 @@ public class UploadDownloadController {
     private static final String FILES_PATH = "src/main/resources/files";
 
     @PostMapping("/upload")
-    private static ResponseEntity<String> uploadFile(@RequestParam("file") final MultipartFile file) {
+    public static ResponseEntity<String> uploadFile(@RequestParam("file") final MultipartFile file) {
         try {
             write(file);
             return ResponseEntity.ok("");
