@@ -15,8 +15,8 @@ Start the spring boot application and run the following URLs in Postman or anoth
 | `POST`  |http://localhost:8080/employees | Post/save employee(send new employee through request body) |
 
 ## Upload and Download files with Spring Boot REST API
-In this project I create the another Controller for uploading and downloading files using URLs.
-you can watch the uploaded files in the directory
+I create another controller for uploading and downloading files using URLs in this project.
+In the directory, you can see the uploaded files.
 #### src/main/resources/files
 You can learn how to send a file through Postman [here](https://stackoverflow.com/questions/39037049/how-to-upload-a-file-and-json-data-in-postman).
 
